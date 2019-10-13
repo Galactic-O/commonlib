@@ -11,9 +11,19 @@
 # - $5 -> int : Right spacing (defaults to 0)
 # - $6 -> int : Box spacing from left of screen (defaults to 0)
 # - $7 -> String : Border type override from default (#)
+#         :: dash2fat -> Fat 2-dash lines (╏)
+#         :: dash2thin -> Thin 2-dash lines (╎)
+#         :: dash3fat -> Fat 3-dash lines (┇)
+#         :: dash3thin -> Thin 3-dash lines (┆)
+#         :: dash4fat -> Fat 4-dash lines (┋)
+#         :: dash4thin -> Thin 4-dashe lines (┊)
 #         :: double -> Double box lines (║)
+#         :: doublemono -> Double horizontal and mono vertical (thin)
+#         :: monodouble -> Mono horizontal and double vertical (thin)
 #         :: monofat -> Fat box lines(┃)
+#         :: monofatthin -> Fat horizontal and thin vertical
 #         :: monothin -> Thin box lines (│)
+#         :: monothinfat -> Thin horizontal and fat vertical
 # ARGS POLICY:
 # - Args can be the title only ($1), title and override ($1 $7) with $7 as $2,
 #   title and ALL spacing options ($1 $2 $3 $4 $5 $6) and all args in order.
@@ -103,7 +113,7 @@ _titlebox () {
 			"monofat")
 				borders=("━" "┃" "┏" "┓" "┗" "┛");;
 
-			"monofathin")
+			"monofatthin")
 				borders=("━" "│" "┍" "┑" "┕" "┙");;
 
 			"monothin")
