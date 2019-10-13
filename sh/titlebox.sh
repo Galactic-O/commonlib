@@ -11,9 +11,9 @@
 # - $5 -> int : Right spacing (defaults to 0)
 # - $6 -> int : Box spacing from left of screen (defaults to 0)
 # - $7 -> String : Border type override from default (#)
-#         :: monothin -> Thin box lines (│)
-#         :: monofat -> Fat box lines(┃)
 #         :: double -> Double box lines (║)
+#         :: monofat -> Fat box lines(┃)
+#         :: monothin -> Thin box lines (│)
 # ARGS POLICY:
 # - Args can be the title only ($1), title and override ($1 $7) with $7 as $2,
 #   title and ALL spacing options ($1 $2 $3 $4 $5 $6) and all args in order.
@@ -72,15 +72,46 @@ _titlebox () {
 
 	# Override border type if override has been defined
 	if [ "$override" != "" ]; then
-		if [ "$override" == "monothin" ]; then
-			borders=("─" "│" "┌" "┐" "└" "┘");
+		case "$override" in
+			"dash2fat")
+				borders=("╍" "╏" "┏" "┓" "┗" "┛");;
 
-		elif [ "$override" == "monofat" ]; then
-			borders=("━" "┃" "┏" "┓" "┗" "┛");
+			"dash2thin")
+				borders=("╌" "╎" "┌" "┐" "└" "┘");;
 
-		elif [ "$override" == "double" ]; then
-			borders=("═" "║" "╔" "╗" "╚" "╝");
-		fi
+			"dash3fat")
+			borders=("┅" "┇" "┏" "┓" "┗" "┛");;
+
+			"dash3thin")
+				borders=("┄" "┆" "┌" "┐" "└" "┘");;
+
+			"dash4fat")
+				borders=("┉" "┋" "┏" "┓" "┗" "┛");;
+
+			"dash4thin")
+				borders=("┈" "┊" "┌" "┐" "└" "┘");;
+
+			"double")
+				borders=("═" "║" "╔" "╗" "╚" "╝");;
+
+			"doublemono")
+				borders=("═" "│" "╒" "╕" "╘" "╛");;
+
+			"monodouble")
+				borders=("─" "║" "╓" "╖" "╙" "╜");;
+
+			"monofat")
+				borders=("━" "┃" "┏" "┓" "┗" "┛");;
+
+			"monofathin")
+				borders=("━" "│" "┍" "┑" "┕" "┙");;
+
+			"monothin")
+				borders=("─" "│" "┌" "┐" "└" "┘");;
+						  
+			"monothinfat")
+				borders=("─" "┃" "┎" "┒" "┖" "┚");;
+ 		esac
 	fi
 
 	# Draw the top line
