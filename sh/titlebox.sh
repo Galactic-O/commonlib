@@ -69,7 +69,7 @@ _titlebox () {
 	# horizontal padding options
 	local horizontal_length=`expr $title_length + $left + $right`
 
-	# Set default box boders
+	# Set default box borders
 	# ("horizontal" "vertical" "topleft" "topright" "bottomleft" "bottomright")
 	local borders=("#" "#" "#" "#" "#" "#")
 
@@ -168,7 +168,7 @@ _titlebox () {
 # ==============================================================================
 
 # Prints $1 spaces, "$2", "$3" $4 times, "$5", and a linefeed $6 times
-# These are printed using for loops becuase I've been fighting with awk to no
+# These are printed using for loops because I've been fighting with awk to no
 # avail to printf multibyte characters (awk '{printf "%*s", $1, $2}').
 # A pull request fixing this circus of degradation would be nice!
 _titlebox_drawboxline() {
